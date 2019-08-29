@@ -68,8 +68,6 @@
     .landing-page .input-location-gps:hover .input-location-gps-checkmark,
     .landing-page .input-location-gps:hover input:checked ~ .input-location-gps-checkmark {
       background-color: red; }
-    .landing-page .input-location-gps:hover .input-location-gps-checkmark:after {
-      display: block; }
     .landing-page .input-location-gps:hover .input-location-gps-text::before {
       transition: 0.2s;
       width: calc(100% - 2rem); }

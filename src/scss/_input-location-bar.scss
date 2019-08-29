@@ -79,9 +79,6 @@
       & input:checked ~ .input-location-gps-checkmark {
         background-color: red;
       }
-      & .input-location-gps-checkmark:after {
-        display: block;
-      }
       & .input-location-gps-text {
         &::before {
           transition: 0.2s;

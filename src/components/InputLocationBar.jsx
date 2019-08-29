@@ -22,7 +22,7 @@ class InputLocationBar extends Component {
           <label className="input-location-gps">
             <input className="input-location-gps-checkbox" type="checkbox" />
             <span className="input-location-gps-checkmark"></span>
-            <span className="input-location-gps-text">Use My Phone's Location Services Instead</span>
+            <span className="input-location-gps-text">Use My Device's Location Services Instead</span>
           </label>
           <button className="input-location-submit-button" type="Submit" value="submit">GO</button>            
         </form>
