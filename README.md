@@ -42,7 +42,9 @@ This is a single page application that tells people where to eat.
 
 # Production
 
-- This site is deployed through GitHub to Netlify. To install the Netlify CLI and set up deployment:
+- This site is deployed through GitHub to Netlify. After linking a GitHub account to Netlify, you basically allow Netlify to have access to one (or all) of your repositories that you want to deploy, select a production branch to deploy from, and that's pretty much it.
+
+- To install the Netlify CLI to push deployments from the command line:
 
   $ npm i -g netlify-cli
   $ netlify deploy

@@ -14,7 +14,7 @@ class InputLocationBar extends Component {
         <h1 className="headline">
           Tell Me Where To <span className="headline-emphasis">EAT</span>
         </h1>
-        <span className="under-construction">This site is under construction, check us out later though!</span>
+        <span className="under-construction">This site is currently under construction. Check us out later though!</span>
         <form action='' method="POST">
           <div className="input-location-text-wrapper">
             <input className="input-location-text-field" name="input-location-text-field" type="text" placeholder="Enter City + State, or Zip Code" />
