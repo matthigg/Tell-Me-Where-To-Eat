@@ -1,6 +1,11 @@
 .landing-page {
   margin-top: 15vh;
   text-align: center;
+  & .under-construction {
+    color: $primary-color;
+    font-size: calc(1rem + 0.5vw);
+    margin: calc(1rem + 0.5vw);
+  }
   & .headline {
     color: $primary-color;
     padding: calc(2rem + 0.5vw);
