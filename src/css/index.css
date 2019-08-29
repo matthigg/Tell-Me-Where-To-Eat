@@ -31,7 +31,7 @@
       background-color: #eee;
       border-radius: calc(0.5rem + 0.125vw);
       height: calc(1rem + 0.25vw);
-      left: -2rem;
+      left: 0;
       position: absolute;
       top: 0.25rem;
       width: calc(1rem + 0.25vw); }
@@ -51,17 +51,32 @@
     .landing-page .input-location-gps .input-location-gps-text {
       color: #eee;
       font-size: calc(1rem + 0.25vw);
-      font-style: italic; }
-    .landing-page .input-location-gps:hover input ~ .input-location-gps-checkmark {
-      background-color: red; }
+      font-style: italic;
+      padding-left: 2rem; }
+      .landing-page .input-location-gps .input-location-gps-text::before {
+        background-color: red;
+        content: '';
+        height: 0.2rem;
+        position: absolute;
+        bottom: -0.25rem;
+        transition: 0.2s;
+        width: 0; }
     .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark {
       background-color: #a33; }
     .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark:after {
       display: block; }
+    .landing-page .input-location-gps:hover .input-location-gps-checkmark,
+    .landing-page .input-location-gps:hover input:checked ~ .input-location-gps-checkmark {
+      background-color: red; }
+    .landing-page .input-location-gps:hover .input-location-gps-checkmark:after {
+      display: block; }
+    .landing-page .input-location-gps:hover .input-location-gps-text::before {
+      transition: 0.2s;
+      width: calc(100% - 2rem); }
   .landing-page .input-location-submit-button {
     background-color: #eee;
     border: none;
-    border-radius: calc(1.5rem + 0.25vw);
+    border-radius: calc(1.625rem + 0.25vw);
     color: #a33;
     font-size: calc(1rem + 0.25vw);
     font-style: italic;
