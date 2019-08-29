@@ -42,6 +42,12 @@ This is a single page application that tells people where to eat.
 
 # Production
 
+- This site is deployed through GitHub to Netlify. To install the Netlify CLI and set up deployment:
+
+  $ npm i -g netlify-cli
+  $ netlify deploy
+  <an authorization screen pops up in a browser window, accept & close>
+  <go through command line prompts in terminal>
 
 # Using Custom JavaScript
 
