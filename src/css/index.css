@@ -1,13 +1,118 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+.landing-page {
+  margin-top: 15vh;
+  text-align: center; }
+  .landing-page .headline {
+    color: #eee;
+    padding: calc(2rem + 0.5vw); }
+    .landing-page .headline .headline-emphasis {
+      font-weight: 900;
+      font-size: calc(2rem + 0.5vw);
+      font-style: italic;
+      padding: 0 0.1rem;
+      position: relative;
+      top: 0.1rem; }
+  .landing-page .input-location-gps {
+    cursor: pointer;
+    display: block;
+    margin: calc(1rem + 0.5vw) auto;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: max-content; }
+    .landing-page .input-location-gps .input-location-gps-checkbox {
+      cursor: pointer;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+      width: 0; }
+    .landing-page .input-location-gps .input-location-gps-checkmark {
+      background-color: #eee;
+      border-radius: calc(0.5rem + 0.125vw);
+      height: calc(1rem + 0.25vw);
+      left: -2rem;
+      position: absolute;
+      top: 0.25rem;
+      width: calc(1rem + 0.25vw); }
+      .landing-page .input-location-gps .input-location-gps-checkmark:after {
+        border: solid #eee;
+        border-width: 0 3px 3px 0;
+        content: "";
+        display: none;
+        height: calc(1rem + 0.25vw);
+        left: 0.35rem;
+        position: absolute;
+        top: -0.5rem;
+        width: calc(0.5rem + 0.125vw);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg); }
+    .landing-page .input-location-gps .input-location-gps-text {
+      color: #eee;
+      font-size: calc(1rem + 0.25vw);
+      font-style: italic; }
+    .landing-page .input-location-gps:hover input ~ .input-location-gps-checkmark {
+      background-color: red; }
+    .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark {
+      background-color: #a33; }
+    .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark:after {
+      display: block; }
+  .landing-page .input-location-submit-button {
+    background-color: #eee;
+    border: none;
+    border-radius: calc(1.5rem + 0.25vw);
+    color: #a33;
+    font-size: calc(1rem + 0.25vw);
+    font-style: italic;
+    font-weight: 900;
+    height: calc(3.25rem + 0.5vw);
+    width: calc(3.25rem + 0.5vw); }
+    .landing-page .input-location-submit-button:hover {
+      background-color: red;
+      color: #eee;
+      cursor: pointer; }
+  .landing-page .input-location-text-wrapper {
+    margin: auto;
+    position: relative;
+    width: max-content; }
+    .landing-page .input-location-text-wrapper .input-location-floating-placeholder {
+      color: #a33;
+      cursor: text;
+      font-style: italic;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 1.25rem;
+      transition: 0.2s;
+      width: max-content; }
+    .landing-page .input-location-text-wrapper .input-location-text-field {
+      background-color: #eee;
+      border: 4px solid #a33;
+      border-radius: 1.25rem;
+      font-size: calc(1rem + 0.2vw);
+      height: calc(3.25rem + 0.5vw);
+      padding: 0 calc(1rem + 0.5vw);
+      width: 35vw; }
+      .landing-page .input-location-text-wrapper .input-location-text-field:focus {
+        border: 4px solid red;
+        box-shadow: none;
+        outline: none; }
+      .landing-page .input-location-text-wrapper .input-location-text-field:focus ~ .input-location-floating-placeholder,
+      .landing-page .input-location-text-wrapper .input-location-text-field:not(:placeholder-shown) ~ .input-location-floating-placeholder {
+        font-size: 0.7rem;
+        top: 0.35rem;
+        transition: 0.1s; }
+      .landing-page .input-location-text-wrapper .input-location-text-field::placeholder {
+        opacity: 0; }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #a33;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }

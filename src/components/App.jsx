@@ -1,12 +1,27 @@
-import React from 'react';
-import '../css/App.css';
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      Tell Me Where To Eat
-    </div>
-  );
+import InputLocationBar from './InputLocationBar'
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      nothing: null
+    }
+  }
+
+  componentDidMount() {
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <InputLocationBar />
+      </div>
+    )
+  }
 }
 
 export default App;

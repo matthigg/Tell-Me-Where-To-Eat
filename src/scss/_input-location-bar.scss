@@ -1,0 +1,127 @@
+.landing-page {
+  margin-top: 15vh;
+  text-align: center;
+  & .headline {
+    color: $primary-color;
+    padding: calc(2rem + 0.5vw);
+    & .headline-emphasis {
+      font-weight: 900;
+      font-size: calc(2rem + 0.5vw);
+      font-style: italic;
+      padding: 0 0.1rem;
+      position: relative;
+      top: 0.1rem;
+    }
+  }
+  & .input-location-gps {
+    cursor: pointer;
+    display: block;
+    margin: calc(1rem + 0.5vw) auto;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: max-content;
+    & .input-location-gps-checkbox {  // hide the real checkbox
+      cursor: pointer;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+      width: 0;
+    }
+    & .input-location-gps-checkmark {  // fake checkbox
+      background-color: $primary-color;
+      border-radius: calc(0.5rem + 0.125vw);
+      height: calc(1rem + 0.25vw);
+      left: -2rem;
+      position: absolute;
+      top: 0.25rem;
+      width: calc(1rem + 0.25vw);
+      &:after {
+        border: solid $primary-color;
+        border-width: 0 3px 3px 0;
+        content: "";
+        display: none;
+        height: calc(1rem + 0.25vw);
+        left: 0.35rem;
+        position: absolute;
+        top: -0.5rem;
+        width: calc(0.5rem + 0.125vw);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    & .input-location-gps-text {
+      color: $primary-color;
+      font-size: calc(1rem + 0.25vw);
+      font-style: italic;
+    }
+    &:hover input ~ .input-location-gps-checkmark {
+      background-color: red;
+    }
+    & input:checked ~ .input-location-gps-checkmark {
+      background-color: $secondary-color;
+    }
+    & input:checked ~ .input-location-gps-checkmark:after {
+      display: block;
+    }
+  }
+  & .input-location-submit-button {
+    background-color: $primary-color;
+    border: none;
+    border-radius: calc(1.5rem + 0.25vw);
+    color: $secondary-color;
+    font-size: calc(1rem + 0.25vw);
+    font-style: italic;
+    font-weight: 900;
+    height: calc(3.25rem + 0.5vw);
+    width: calc(3.25rem + 0.5vw);
+    &:hover {
+      background-color: red;
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+  & .input-location-text-wrapper {
+    margin: auto;
+    position: relative;
+    width: max-content;
+    & .input-location-floating-placeholder {
+      color: $secondary-color;
+      cursor: text;
+      font-style: italic;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 1.25rem;
+      transition: 0.2s;
+      width: max-content;
+    }
+    & .input-location-text-field {
+      background-color: $primary-color;
+      border: 4px solid $secondary-color;
+      border-radius: 1.25rem;
+      font-size: calc(1rem + 0.2vw);
+      height: calc(3.25rem + 0.5vw);
+      padding: 0 calc(1rem + 0.5vw);
+      width: 35vw;
+      &:focus {
+        border: 4px solid red;
+        box-shadow: none;
+        outline: none;
+      }
+      &:focus ~ .input-location-floating-placeholder,
+      &:not(:placeholder-shown) ~ .input-location-floating-placeholder {
+        font-size: 0.7rem;
+        top: 0.35rem;
+        transition: 0.1s;
+      }
+      &::placeholder {
+        opacity: 0
+      }
+    }
+  }
+}
