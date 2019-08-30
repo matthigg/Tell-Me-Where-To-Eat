@@ -1,4 +1,4 @@
-This is a single page application that tells people where to eat.
+This is a React application hosted on Netlify that tells people where to eat.
 
 # Local Development
 

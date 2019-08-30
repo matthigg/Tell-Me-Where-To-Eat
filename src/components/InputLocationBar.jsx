@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import inputLocationBar from '../js/inputLocationBar'
 
 class InputLocationBar extends Component {
