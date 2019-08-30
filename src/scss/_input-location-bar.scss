@@ -78,12 +78,25 @@
     & input:checked ~ .input-location-gps-checkmark:after {
       display: block;
     }
-    &:hover {
-      & .input-location-gps-checkmark,
+    @media (min-width: 992px) {   // desktop gps checkbox hover effects
+      &:hover {
+        & .input-location-gps-checkmark,
+        & input:checked ~ .input-location-gps-checkmark {
+          background-color: red;
+        }
+        & .input-location-gps-text {
+          &::before {
+            transition: 0.2s;
+            width: calc(100% - 2rem);
+          }
+        }
+      }
+    }
+    @media (max-width: 991.98px) {  // mobile gps checkbox tap effects
       & input:checked ~ .input-location-gps-checkmark {
         background-color: red;
       }
-      & .input-location-gps-text {
+      & input:checked ~ .input-location-gps-text {
         &::before {
           transition: 0.2s;
           width: calc(100% - 2rem);
