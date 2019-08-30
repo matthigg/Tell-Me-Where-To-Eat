@@ -90,6 +90,7 @@
     font-style: italic;
     font-weight: 900;
     height: calc(3.25rem + 0.5vw);
+    margin-top: calc(2rem + 2vw);
     transition: 0.2s;
     width: calc(3.25rem + 0.5vw); }
     .landing-page .input-location-submit-button:hover {
