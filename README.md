@@ -44,12 +44,16 @@ This is a single page application that tells people where to eat.
 
 - This site is deployed through GitHub to Netlify. After linking a GitHub account to Netlify, you basically allow Netlify to have access to one (or all) of your repositories that you want to deploy, select a production branch to deploy from, and that's pretty much it.
 
-- To install the Netlify CLI to push deployments from the command line:
+- The site is continually deployed from the GitHub <master> branch using the settings under Overview > Site settings > Build & deploy > Continuous Deployment > Build settings. In particular, the "Build command" is "npm run build", and the publish directory is build/, just as it would be if this were all being handled manually.
+
+- To install the Netlify CLI to push deployments from the command line yourself:
 
   $ npm i -g netlify-cli
   $ netlify deploy
   <an authorization screen pops up in a browser window, accept & close>
   <go through command line prompts in terminal>
+
+  ... note: you have to run "npm run build" yourself if you want to control deployments from the command line.
 
 # Using Custom JavaScript
 

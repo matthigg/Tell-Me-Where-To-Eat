@@ -3,8 +3,22 @@ import React, { Component } from 'react'
 import inputLocationBar from '../js/inputLocationBar'
 
 class InputLocationBar extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: ''
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
 
   componentDidMount() {
+    console.log(this.state.input_location_text)
     inputLocationBar()
   }
 
@@ -17,7 +31,14 @@ class InputLocationBar extends Component {
         <span className="under-construction">This site is under construction. Check us out later though!</span>
         <form action='' method="POST">
           <div className="input-location-text-wrapper">
-            <input className="input-location-text-field" name="input-location-text-field" type="text" placeholder="Enter City + State, or Zip Code" />
+            <input 
+              className="input-location-text-field" 
+              name="input-location-text-field" 
+              type="text" 
+              placeholder="Enter City + State, or Zip Code" 
+              value={ this.state.value } 
+              onChange={ this.handleChange }
+            />
             <label htmlFor="input-location-text-field" className="input-location-floating-placeholder">Enter City + State, or Zip Code</label>
           </div>
           <label className="input-location-gps">
