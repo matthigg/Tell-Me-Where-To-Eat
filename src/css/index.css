@@ -14,10 +14,14 @@
       font-size: calc(1.5rem + 1vw);
       font-style: italic;
       padding: 0 0.1rem; }
+  .landing-page .input-error {
+    color: #eee;
+    opacity: 0;
+    padding: calc(0.5rem + 0.5vw); }
   .landing-page .input-location-gps {
     cursor: pointer;
     display: block;
-    margin: calc(1rem + 0.5vw) auto;
+    margin: calc(2rem + 0.5vw) auto;
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -74,13 +78,13 @@
         background-color: red; }
       .landing-page .input-location-gps:hover .input-location-gps-text::before {
         transition: 0.2s;
-        width: calc(100% - 2rem); } }
+        width: calc(100% - 1.5rem - 0.25vw); } }
     @media (max-width: 991.98px) {
       .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark {
         background-color: red; }
       .landing-page .input-location-gps input:checked ~ .input-location-gps-text::before {
         transition: 0.2s;
-        width: calc(100% - 2rem); } }
+        width: calc(100% - 1.5rem - 0.25vw); } }
   .landing-page .input-location-submit-button {
     background-color: #eee;
     border: none;
@@ -98,6 +102,9 @@
       color: #eee;
       cursor: pointer;
       transition: 0.2s; }
+    .landing-page .input-location-submit-button:focus {
+      box-shadow: none;
+      outline: none; }
   .landing-page .input-location-text-wrapper {
     margin: auto;
     position: relative;

@@ -17,10 +17,15 @@
       padding: 0 0.1rem;
     }
   }
+  & .input-error {
+    color: $primary-color;
+    opacity: 0;
+    padding: calc(0.5rem + 0.5vw);
+  }
   & .input-location-gps {
     cursor: pointer;
     display: block;
-    margin: calc(1rem + 0.5vw) auto;
+    margin: calc(2rem + 0.5vw) auto;
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -87,7 +92,7 @@
         & .input-location-gps-text {
           &::before {
             transition: 0.2s;
-            width: calc(100% - 2rem);
+            width: calc(100% - 1.5rem - 0.25vw);
           }
         }
       }
@@ -99,7 +104,7 @@
       & input:checked ~ .input-location-gps-text {
         &::before {
           transition: 0.2s;
-          width: calc(100% - 2rem);
+          width: calc(100% - 1.5rem - 0.25vw);
         }
       }
     }
@@ -121,6 +126,10 @@
       color: $primary-color;
       cursor: pointer;
       transition: 0.2s;
+    }
+    &:focus {
+      box-shadow: none;
+      outline: none;
     }
   }
   & .input-location-text-wrapper {
