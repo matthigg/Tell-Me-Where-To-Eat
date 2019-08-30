@@ -17,7 +17,6 @@ class InputLocationBar extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.input_location_text)
     inputLocationBar()
   }
 
