@@ -52,7 +52,7 @@ export default function inputLocationBar() {
     const lat = user_coordinates.latitude
     const long = user_coordinates.longitude
     console.log(lat, long)
-    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyBPs3sCYKbSjJ4MfDvTm72Rnur58g7HOYI'
+    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyDsQhM90n8BdS9g-BwcSzRVr6KgY9oL9GY'
     fetch(api_request)
       .then(function(response) {
         return response.json()
@@ -66,3 +66,4 @@ export default function inputLocationBar() {
     console.log(user_location)
   }
 }
+
