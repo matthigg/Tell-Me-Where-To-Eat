@@ -26,7 +26,7 @@ class InputLocationBar extends Component {
         <h1 className="headline">
           Tell Me Where To <span className="headline-emphasis">EAT</span>
         </h1>
-        <span className="under-construction">This site is under construction. Check us out later though!</span><br />
+        <span className="under-construction">1 This site is under construction. Check us out later though!</span><br />
         <div className="input-error">
           <span>Give us a location and we'll tell you where to eat!</span>
         </div>
