@@ -51,7 +51,7 @@ export default function inputLocationBar() {
   function geocodingRequest(user_coordinates) {
     const lat = user_coordinates.latitude
     const long = user_coordinates.longitude
-    const key = 'AIzaSyBz_l9JKeZ-2gfS8tD9jXX7xm5WLwBVqZA'
+    const key = 'AIzaSyCm2d672hblVDEGa97fUSpgPy9E5foH1rs'
     const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=' + key
     fetch(api_request)
       .then(function(response) {
