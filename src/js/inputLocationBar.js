@@ -31,7 +31,7 @@ export default function inputLocationBar() {
     // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
     if (gps_button.checked) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        makeGoogleAPIRequest(position.coords)
+        geocodingRequest(position.coords)
       });
     }
 
@@ -42,14 +42,27 @@ export default function inputLocationBar() {
 
     // Get user location from <input> text
     else {
-      const inputtext = input.value
-      makeGoogleAPIRequest(inputtext)
+      const user_location = input.value
+      findPlacesRequest(user_location)
     }
   })
 
   // Send request to Google API
-  function makeGoogleAPIRequest(user_location) {
+  function geocodingRequest(user_coordinates) {
+    const lat = user_coordinates.latitude
+    const long = user_coordinates.longitude
+    console.log(lat, long)
+    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyBPs3sCYKbSjJ4MfDvTm72Rnur58g7HOYI'
+    fetch(api_request)
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(myJson) {
+        console.log(JSON.stringify(myJson))
+      })
+  }
+
+  function findPlacesRequest(user_location) {
     console.log(user_location)
-    
   }
 }
