@@ -70,7 +70,7 @@
         transition: 0.2s;
         width: calc(100% - 1.5rem - 0.25vw); }
     .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark {
-      background-color: #a33; }
+      background-color: red; }
     .landing-page .input-location-gps input:checked ~ .input-location-gps-checkmark:after {
       display: block; }
     @media (min-width: 992px) {

@@ -81,7 +81,7 @@ $landing-page-transition: 0.2s;
       }
     }
     & input:checked ~ .input-location-gps-checkmark {
-      background-color: $secondary-color;
+      background-color: red;
     }
     & input:checked ~ .input-location-gps-checkmark:after {
       display: block;
