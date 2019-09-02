@@ -49,21 +49,30 @@ export default function inputLocationBar() {
 
   // Send request to Google API
   function geocodingRequest(user_coordinates) {
-    const lat = user_coordinates.latitude
-    const long = user_coordinates.longitude
+    // const lat = user_coordinates.latitude
+    // const long = user_coordinates.longitude
     const key = 'AIzaSyCm2d672hblVDEGa97fUSpgPy9E5foH1rs'
     const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=' + key
     fetch(api_request)
       .then(function(response) {
         return response.json()
       })
-      .then(function(myJson) {
-        console.log(JSON.stringify(myJson))
+      .then(function(response_json) {
+        console.log(JSON.stringify(response_json))
       })
   }
 
   function findPlacesRequest(user_location) {
-    console.log(user_location)
+    const key = 'AIzaSyBJowmonXgGjMPabHXygaQqS4_gu2B7pX0'
+    const api_request = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + user_location + '&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=' + key
+    fetch(api_request, {mode: 'no-cors'})
+      .then(function(response) {
+        // return response.json()
+        console.log(response)
+      })
+      // .then(function(response_json) {
+      //   console.log(JSON.stringify(response_json))
+      // })
   }
 }
 
