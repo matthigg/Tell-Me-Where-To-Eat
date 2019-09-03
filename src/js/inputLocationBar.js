@@ -48,20 +48,20 @@ export default function inputLocationBar() {
   })
 
   // Send request to Google Geocoding API
-  function geocodingRequest(user_coordinates) {
-    const lat = user_coordinates.latitude
-    const long = user_coordinates.longitude
-    const key = ''
-    // console.log(process.env.REACT_APP_GEOCODING_API_KEY)
-    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + key
-    fetch(api_request)
-      .then(function(response) {
-        return response.json()
-      })
-      .then(function(response_json) {
-        console.log(JSON.stringify(response_json))
-      })
-  }
+  // function geocodingRequest(user_coordinates) {
+  //   const lat = user_coordinates.latitude
+  //   const long = user_coordinates.longitude
+  //   const key = ''
+  //   // console.log(process.env.REACT_APP_GEOCODING_API_KEY)
+  //   const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + key
+  //   fetch(api_request)
+  //     .then(function(response) {
+  //       return response.json()
+  //     })
+  //     .then(function(response_json) {
+  //       console.log(JSON.stringify(response_json))
+  //     })
+  // }
 
   // Send request to Google Maps JavaScript API using Places Library
   function findPlacesRequest(input) {
