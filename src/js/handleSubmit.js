@@ -52,6 +52,12 @@ export default function handleSubmit() {
 
   // Send request to Google Maps JavaScript API using Places Library
   function findPlacesRequest(input) {
+    const restaurant_categories = ['fine dining', 'casual dining', 'contemporary casual', 'family style', 'fast casual', 'fast food', 'cafe', 'buffet', 'bistro', 'pub', 'grill', 'steakhouse']
+    const restaurant_styles = ['american', 'indian', 'italian', 'mexican', 'asian', 'hispanic', 'chinese', 'japanese', 'korean', 'vietnamese', 'ethiopian', 'french', 'irish', 'greek', 'german', 'brazilian', 'kosher', 'gluten-free']
+    const random_1 = Math.floor(Math.random() * restaurant_categories.length)
+    const random_2 = Math.floor(Math.random() * restaurant_styles.length)
+    const restaurant_type = restaurant_categories[random_1] + ' ' + restaurant_styles[random_2] + ' '
+    input = restaurant_type + 'restaurants in ' + input
     const google = window.google
     let zero = new google.maps.LatLng(0, 0)
     let map = new google.maps.Map(
@@ -70,12 +76,10 @@ export default function handleSubmit() {
         map.setCenter(results[0].geometry.location)
         openModal()
       } else {
-        const address = "Main St."
-        const name = "Joe's"
-        document.querySelector('.search-results-address').innerHTML = address
-        document.querySelector('.search-results-name').innerHTML = name
-        // map.setCenter(results[0].geometry.location)
-        openModal()
+        console.log(input)
+        const url = 'https://www.google.com/search?q=' + input
+        const blank = '_blank'
+        window.open(`${url}`, `${blank}`, "noopener,noreferrer")
       }
     });
   }
