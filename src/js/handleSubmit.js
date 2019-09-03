@@ -1,7 +1,5 @@
 export default function handleSubmit() {
 
-  console.log(process.env.REACT_APP_FIND_PAGES_API_KEY)
-
   // Click the "GO"/submit button if user hits "Enter" 
   document.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
@@ -72,7 +70,12 @@ export default function handleSubmit() {
         map.setCenter(results[0].geometry.location)
         openModal()
       } else {
-        console.log(results, status)
+        const address = "Main St."
+        const name = "Joe's"
+        document.querySelector('.search-results-address').innerHTML = address
+        document.querySelector('.search-results-name').innerHTML = name
+        // map.setCenter(results[0].geometry.location)
+        openModal()
       }
     });
   }

@@ -19,9 +19,6 @@ class InputLocationBar extends Component {
 
   componentDidMount() {
     inputLocationBar()
-
-
-
     handleSubmit()
   }
 
