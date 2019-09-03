@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import handleSubmit from '../js/handleSubmit'
 import inputLocationBar from '../js/inputLocationBar'
 
-console.log(process.env.REACT_APP_FIND_PAGES_API_KEY)
-
 class InputLocationBar extends Component {
   constructor(props) {
     super(props)
@@ -22,11 +20,7 @@ class InputLocationBar extends Component {
   componentDidMount() {
     inputLocationBar()
 
-    const script = document.createElement('script')
-    script.async = true;
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + process.env.REACT_APP_FIND_PAGES_API_KEY + '&libraries=places'
-    script.type = 'text/javascript'
-    document.body.appendChild(script)
+
 
     handleSubmit()
   }
