@@ -76,10 +76,13 @@ export default function handleSubmit() {
         map.setCenter(results[0].geometry.location)
         openModal()
       } else {
-        console.log(input)
         const url = 'https://www.google.com/search?q=' + input
         const blank = '_blank'
         window.open(`${url}`, `${blank}`, "noopener,noreferrer")
+
+        document.querySelector('.search-results-address').innerHTML = 'address'
+        document.querySelector('.search-results-name').innerHTML = 'name'
+        openModal()
       }
     });
   }

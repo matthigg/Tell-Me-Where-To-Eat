@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import handleOpenGoogleMaps from '../js/handleOpenGoogleMaps'
 import handleSubmit from '../js/handleSubmit'
 import inputLocationBar from '../js/inputLocationBar'
 
@@ -20,6 +21,7 @@ class InputLocationBar extends Component {
   componentDidMount() {
     inputLocationBar()
     handleSubmit()
+    handleOpenGoogleMaps()
   }
 
   render() {
@@ -31,6 +33,7 @@ class InputLocationBar extends Component {
             <div className="search-results-name"></div>
             <div className="search-results-address"></div>
             <div className="map"></div>
+            <button className="open-google-maps-button">Open Google Maps</button>
           </div>
         </div>
         <h1 className="headline">

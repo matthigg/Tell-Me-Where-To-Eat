@@ -147,6 +147,7 @@
           width: 90vw; } }
   .landing-page .search-results-modal {
     background-color: transparent;
+    cursor: pointer;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -161,30 +162,51 @@
       border: 4px solid red;
       border-radius: calc(1rem + 1vw);
       color: #eee;
-      margin: 10vh auto 0 auto;
+      cursor: auto;
+      margin: 5vh auto 0 auto;
       padding: calc(1rem + 1vw);
-      width: 75vw; }
+      width: max-content; }
       .landing-page .search-results-modal .search-results-modal-content .close-modal {
         color: #eee;
-        font-size: calc(1rem + 1vw);
-        font-weight: 900;
+        font-size: calc(1rem + 0.75vw);
+        font-weight: 700;
         margin-left: auto;
         padding-right: calc(1rem + 1vw);
-        transition: 0.35s ease-in;
+        transition: 0.15s ease-in;
         width: max-content; }
         .landing-page .search-results-modal .search-results-modal-content .close-modal:hover {
           color: red;
           cursor: pointer;
-          transition: 0.35s ease-in; }
+          transition: 0.15s ease-in; }
       .landing-page .search-results-modal .search-results-modal-content .map {
         margin: calc(1rem + 1vw) auto;
-        height: 50vh;
-        width: 75%; }
+        height: 40vh;
+        width: 50vw; }
+        @media (max-width: 767.98px) {
+          .landing-page .search-results-modal .search-results-modal-content .map {
+            height: 50vh;
+            width: 70vw; } }
+      .landing-page .search-results-modal .search-results-modal-content .open-google-maps-button {
+        background-color: #eee;
+        border: none;
+        border-radius: calc(0.5rem + 0.25vw);
+        color: #a33;
+        font-size: calc(0.75rem + 0.75vw);
+        font-weight: 700;
+        padding: calc(0.25rem + 0.1vw) calc(0.5rem + 0.25vw);
+        transition: 0.15s ease-in; }
+        .landing-page .search-results-modal .search-results-modal-content .open-google-maps-button:focus {
+          box-shadow: none;
+          outline: none; }
+        .landing-page .search-results-modal .search-results-modal-content .open-google-maps-button:hover {
+          background-color: red;
+          color: #eee;
+          transition: 0.15s ease-in; }
       .landing-page .search-results-modal .search-results-modal-content .search-results-address {
-        font-size: calc(1rem + 1vw); }
+        font-size: calc(1rem + 0.25vw); }
       .landing-page .search-results-modal .search-results-modal-content .search-results-name {
         font-weight: 700;
-        font-size: calc(1.25rem + 1vw); }
+        font-size: calc(1.25rem + 0.25vw); }
     .landing-page .search-results-modal.modal-fade-in {
       opacity: 1;
       top: 0;

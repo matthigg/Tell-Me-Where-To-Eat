@@ -182,10 +182,11 @@ $landing-page-transition: 0.2s;
   }
 
   $modal-transition: 0.35s ease-in;
+  $modal-hover-transition: 0.15s ease-in;
 
   & .search-results-modal {
-    // background-color: $tertiary-color-rgba;
     background-color: transparent;
+    cursor: pointer;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -200,34 +201,58 @@ $landing-page-transition: 0.2s;
       border: 4px solid red;
       border-radius: calc(1rem + 1vw);
       color: $primary-color;
-      margin: 10vh auto 0 auto;
+      cursor: auto;
+      margin: 5vh auto 0 auto;
       padding: calc(1rem + 1vw);
-      width: 75vw;
+      width: max-content;
       & .close-modal {
         color: $primary-color;
-        font-size: calc(1rem + 1vw);
-        font-weight: 900;
+        font-size: calc(1rem + 0.75vw);
+        font-weight: 700;
         margin-left: auto;
         padding-right: calc(1rem + 1vw);
-        transition: $modal-transition;
+        transition: $modal-hover-transition;
         width: max-content;
         &:hover {
           color: red;
           cursor: pointer;
-          transition: $modal-transition;
+          transition: $modal-hover-transition;
         }
       }
       & .map {
         margin: calc(1rem + 1vw) auto;
-        height: 50vh;
-        width: 75%;
+        height: 40vh;
+        width: 50vw;
+        @media (max-width: 767.98px) {
+          height: 50vh;
+          width: 70vw;
+        }
+      }
+      & .open-google-maps-button {
+        background-color: $primary-color;
+        border: none;
+        border-radius: calc(0.5rem + 0.25vw);
+        color: $secondary-color;
+        font-size: calc(0.75rem + 0.75vw);
+        font-weight: 700;
+        padding: calc(0.25rem + 0.1vw) calc(0.5rem + 0.25vw);
+        transition: $modal-hover-transition;
+        &:focus {
+          box-shadow: none;
+          outline: none;
+        }
+        &:hover {
+          background-color: red;
+          color: $primary-color;
+          transition: $modal-hover-transition;
+        }
       }
       & .search-results-address {
-        font-size: calc(1rem + 1vw);
+        font-size: calc(1rem + 0.25vw);
       }
       & .search-results-name {
         font-weight: 700;
-        font-size: calc(1.25rem + 1vw);
+        font-size: calc(1.25rem + 0.25vw);
       }
     }
     &.modal-fade-in {
