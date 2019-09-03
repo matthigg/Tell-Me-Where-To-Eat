@@ -56,7 +56,7 @@ export default function handleSubmit() {
     const restaurant_styles = ['american', 'indian', 'seafood', 'vegetarian', 'italian', 'mexican', 'asian', 'hispanic', 'chinese', 'japanese', 'korean', 'vietnamese', 'ethiopian', 'steakhouse', 'french', 'irish', 'greek', 'german', 'brazilian', 'kosher', 'gluten-free']
     const random_1 = Math.floor(Math.random() * restaurant_categories.length)
     const random_2 = Math.floor(Math.random() * restaurant_styles.length)
-    const restaurant_type = restaurant_styles[random_1] + ' ' + restaurant_categories[random_2] + ' '
+    const restaurant_type = restaurant_styles[random_2] + ' ' + restaurant_categories[random_1] + ' '
     input = restaurant_type + 'restaurants in ' + input
     const google = window.google
     const zero = new google.maps.LatLng(0, 0)
