@@ -145,6 +145,50 @@
       @media (max-width: 767.98px) {
         .landing-page .input-location-text-wrapper .input-location-text-field {
           width: 90vw; } }
+  .landing-page .search-results-modal {
+    background-color: transparent;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: -100vh;
+    padding: calc(1rem + 1vw);
+    transition: 0.35s ease-in;
+    width: 100%;
+    z-index: 1; }
+    .landing-page .search-results-modal .search-results-modal-content {
+      background-color: #b44;
+      border: 4px solid red;
+      border-radius: calc(1rem + 1vw);
+      color: #eee;
+      margin: 10vh auto 0 auto;
+      padding: calc(1rem + 1vw);
+      width: 75vw; }
+      .landing-page .search-results-modal .search-results-modal-content .close-modal {
+        color: #eee;
+        font-size: calc(1rem + 1vw);
+        font-weight: 900;
+        margin-left: auto;
+        padding-right: calc(1rem + 1vw);
+        transition: 0.35s ease-in;
+        width: max-content; }
+        .landing-page .search-results-modal .search-results-modal-content .close-modal:hover {
+          color: red;
+          cursor: pointer;
+          transition: 0.35s ease-in; }
+      .landing-page .search-results-modal .search-results-modal-content .map {
+        margin: calc(1rem + 1vw) auto;
+        height: 50vh;
+        width: 75%; }
+      .landing-page .search-results-modal .search-results-modal-content .search-results-address {
+        font-size: calc(1rem + 1vw); }
+      .landing-page .search-results-modal .search-results-modal-content .search-results-name {
+        font-weight: 700;
+        font-size: calc(1.25rem + 1vw); }
+    .landing-page .search-results-modal.modal-fade-in {
+      opacity: 1;
+      top: 0;
+      transition: 0.35s ease-in; }
 
 * {
   margin: 0;

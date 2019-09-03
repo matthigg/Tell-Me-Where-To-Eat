@@ -22,7 +22,15 @@ class InputLocationBar extends Component {
 
   render() {
     return (
-      <div className="landing-page">
+      <section className="landing-page">
+        <div className="search-results-modal">
+          <div className="search-results-modal-content">
+            <div className="close-modal">x</div>
+            <div className="search-results-name"></div>
+            <div className="search-results-address"></div>
+            <div className="map"></div>
+          </div>
+        </div>
         <h1 className="headline">
           Tell Me Where To <span className="headline-emphasis">EAT</span>
         </h1>
@@ -47,7 +55,7 @@ class InputLocationBar extends Component {
           <span className="input-location-gps-text">Use My Device's Location Services Instead</span>
         </label>
         <button className="input-location-submit-button" type="Submit" value="submit">GO</button>            
-      </div>
+      </section>
     )
   }
 }

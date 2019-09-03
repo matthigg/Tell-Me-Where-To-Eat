@@ -20,7 +20,7 @@ export default function inputLocationBar() {
     }
   })
 
-  // Gather user input for submission when "Go" button is clicked
+  // Gather user input for submission when "GO" button is clicked
   // or the "Enter" button is pressed
   const input = document.querySelector('.input-location-text-field')
   const submit_button = document.querySelector('.input-location-submit-button')
@@ -47,12 +47,12 @@ export default function inputLocationBar() {
     }
   })
 
-  // Send request to Google API
+  // Send request to Google Geocoding API
   function geocodingRequest(user_coordinates) {
-    // const lat = user_coordinates.latitude
-    // const long = user_coordinates.longitude
+    const lat = user_coordinates.latitude
+    const long = user_coordinates.longitude
     const key = 'AIzaSyCm2d672hblVDEGa97fUSpgPy9E5foH1rs'
-    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=' + key
+    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + key
     fetch(api_request)
       .then(function(response) {
         return response.json()
@@ -62,17 +62,49 @@ export default function inputLocationBar() {
       })
   }
 
-  function findPlacesRequest(user_location) {
-    const key = 'AIzaSyBJowmonXgGjMPabHXygaQqS4_gu2B7pX0'
-    const api_request = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + user_location + '&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=' + key
-    fetch(api_request, {mode: 'no-cors'})
-      .then(function(response) {
-        // return response.json()
-        console.log(response)
-      })
-      // .then(function(response_json) {
-      //   console.log(JSON.stringify(response_json))
-      // })
+  // Send request to Google Maps JavaScript API using Places Library
+  function findPlacesRequest(input) {
+    const google = window.google
+    let zero = new google.maps.LatLng(0, 0)
+    let map = new google.maps.Map(
+      document.querySelector('.map'), {zoom: 14, center: zero})
+    const request = {
+      query: input,
+      fields: ['formatted_address', 'geometry', 'name', 'permanently_closed']
+    }
+    const service = new google.maps.places.PlacesService(map);
+    service.findPlaceFromQuery(request, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK && results[0].permanently_closed === undefined) {
+        const address = results[0].formatted_address
+        const name = results[0].name
+        document.querySelector('.search-results-address').innerHTML = address
+        document.querySelector('.search-results-name').innerHTML = name
+        map.setCenter(results[0].geometry.location)
+        openModal()
+      } else {
+        console.log(results, status)
+      }
+    });
+  }
+
+  // Open modal when the "GO" button is clicked and (presumably) after relevant
+  // data has been gathered from the appropriate Google API request
+  function openModal() {
+    const modal = document.querySelector('.search-results-modal')
+    modal.classList.add('modal-fade-in')
+
+    // Give functionality to the close button
+    const close = document.querySelector('.close-modal')
+    close.addEventListener('click', () => {
+      modal.classList.remove('modal-fade-in')
+    })
+
+    // Close modal if user clicks outside of .search-results-modal-content
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        modal.classList.remove('modal-fade-in')
+      }
+    }
   }
 }
 
