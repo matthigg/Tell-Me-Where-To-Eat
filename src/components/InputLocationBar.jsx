@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import inputLocationBar from '../js/inputLocationBar'
 
-// console.log(process.env.REACT_APP_FIND_PAGES_API_KEY)
+console.log(process.env.REACT_APP_FIND_PAGES_API_KEY)
+console.log(REACT_APP_FIND_PAGES_API_KEY)
 
 class InputLocationBar extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class InputLocationBar extends Component {
         <h1 className="headline">
           Tell Me Where To <span className="headline-emphasis">EAT</span>
         </h1>
-        <span className="under-construction">1 This site is under construction. Check us out later though!</span><br />
+        <span className="under-construction">2 This site is under construction. Check us out later though!</span><br />
         <div className="input-error">
           <span>Give us a location and we'll tell you where to eat!</span>
         </div>
