@@ -77,14 +77,9 @@ export default function handleSubmit() {
         const marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
         openModal()
       } else {
-        // const url = 'https://www.google.com/search?q=' + input
-        // const blank = '_blank'
-        // window.open(`${url}`, `${blank}`, "noopener,noreferrer")
-
-        document.querySelector('.search-results-address').innerHTML = 'address'
-        document.querySelector('.search-results-name').innerHTML = 'name'
-        // map.setCenter(results[0].geometry.location)
-        openModal()
+        const url = 'https://www.google.com/search?q=' + input
+        const blank = '_blank'
+        window.open(`${url}`, `${blank}`, "noopener,noreferrer")
       }
     });
   }
