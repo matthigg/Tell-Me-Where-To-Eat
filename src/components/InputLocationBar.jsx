@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import inputLocationBar from '../js/inputLocationBar'
 
+// console.log(process.env.REACT_APP_FIND_PAGES_API_KEY)
+
 class InputLocationBar extends Component {
   constructor(props) {
     super(props)
