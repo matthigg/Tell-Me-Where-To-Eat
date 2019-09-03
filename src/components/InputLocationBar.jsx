@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import handleOpenGoogleMaps from '../js/handleOpenGoogleMaps'
 import handleSubmit from '../js/handleSubmit'
+import { Helmet } from 'react-helmet'
 import inputLocationBar from '../js/inputLocationBar'
 
 class InputLocationBar extends Component {
@@ -26,7 +27,8 @@ class InputLocationBar extends Component {
 
   render() {
     return (
-      <Helmet>
+      <section className="landing-page">
+        <Helmet>
 
         {/* Meta Description */}
         <meta description="Can't decide where to eat? Click here! Offering carefully curated (ie. random) restaurant suggestions | Tell Me Where To Eat" />
@@ -34,9 +36,7 @@ class InputLocationBar extends Component {
         {/* <!-- Title --> */}
         <title>Tell Me Where To Eat</title>
 
-      </Helmet>
-
-      <section className="landing-page">
+        </Helmet>
         <div className="search-results-modal">
           <div className="search-results-modal-content">
             <div className="close-modal">x</div>
