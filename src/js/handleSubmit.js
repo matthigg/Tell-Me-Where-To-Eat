@@ -6,8 +6,6 @@ export default function handleSubmit() {
       'value': 1
     })
 
-    console.log(window)
-
   // Click the "GO"/submit button if user hits "Enter" 
   document.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
@@ -53,18 +51,30 @@ export default function handleSubmit() {
     })
 
     const lat = user_coordinates.latitude
-    const long = user_coordinates.longitude
-    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + process.env.REACT_APP_GEOCODING_API_KEY
-    fetch(api_request)
-      .then(function(response) {
-        return response.json()
-      })
-      .then(function(response_json) {
-        console.log(response_json)
-        const address_arr = response_json['results'][0]['formatted_address'].split(', ')
-        const address = address_arr[1] + ' ' + address_arr[2]
-        findPlacesRequest(address)
-      })
+    const lng = user_coordinates.longitude
+    const google = window.google
+
+    const geocoder = new google.maps.Geocoder()
+    const latlng = new google.maps.LatLng(lat, lng)
+    geocoder.geocode( {'location': latlng }, function(results, status) {
+      if (status === 'OK') {
+        console.log(results, status)
+      } else {
+        console.log(results, status)
+      }
+    })
+
+    // const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + process.env.REACT_APP_GEOCODING_API_KEY
+    // fetch(api_request)
+    //   .then(function(response) {
+    //     return response.json()
+    //   })
+    //   .then(function(response_json) {
+    //     console.log(response_json)
+    //     const address_arr = response_json['results'][0]['formatted_address'].split(', ')
+    //     const address = address_arr[1] + ' ' + address_arr[2]
+    //     findPlacesRequest(address)
+    //   })
   }
 
   // Send request to Google Maps JavaScript API using Places Library
