@@ -73,7 +73,8 @@ export default function handleSubmit() {
         document.querySelector('.search-results-address').innerHTML = address
         document.querySelector('.search-results-name').innerHTML = name
         map.setCenter(results[0].geometry.location)
-        const marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
+        const marker = new google.maps.Marker({position: results[0].geometry.location});
+        marker.setMap(map)
         openModal()
       } else {
         const url = 'https://www.google.com/search?q=' + input
