@@ -4,7 +4,8 @@ export default function handleOpenGoogleMaps() {
   open_google_maps_button.addEventListener('click', () => {
     
     // Google Analytics
-    window.gtag('event', 'submit', {
+    window.gtag('event', 'click_external_link', {
+      'event_category': 'external_link',
       'event_label': 'Open Google Maps',
       'value': 1
     })

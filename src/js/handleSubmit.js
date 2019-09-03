@@ -46,7 +46,8 @@ export default function handleSubmit() {
   function reverseGeocodingRequest(user_coordinates) {
 
     // Google Analytics
-    window.gtag('event', 'submit', {
+    window.gtag('event', 'select_reverse_geocoding', {
+      'event_category': 'reverse_geocoding',
       'event_label': 'Use reverse geocoding',
       'value': 1
     })
@@ -86,7 +87,7 @@ export default function handleSubmit() {
       if (status === google.maps.places.PlacesServiceStatus.OK && results[0].permanently_closed === undefined) {
         
         // Google Analytics
-        window.gtag('event', 'submit', {
+        window.gtag('event', 'search', {
           'event_label': 'Successful search',
           'value': 1
         })
@@ -102,7 +103,7 @@ export default function handleSubmit() {
       } else {
 
         // Google Analytics
-        window.gtag('event', 'submit', {
+        window.gtag('event', 'search', {
           'event_label': 'Successful search, API quota limit reached',
           'value': 1
         })
