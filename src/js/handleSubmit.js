@@ -18,7 +18,7 @@ export default function handleSubmit() {
     // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
     if (gps_button.checked) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        // geocodingRequest(position.coords)
+        reverseGeocodingRequest(position.coords)
       });
     }
 
@@ -35,20 +35,19 @@ export default function handleSubmit() {
   })
 
   // Send request to Google Geocoding API
-  // function geocodingRequest(user_coordinates) {
-  //   const lat = user_coordinates.latitude
-  //   const long = user_coordinates.longitude
-  //   const key = ''
-  //   // console.log(process.env.REACT_APP_GEOCODING_API_KEY)
-  //   const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + key
-  //   fetch(api_request)
-  //     .then(function(response) {
-  //       return response.json()
-  //     })
-  //     .then(function(response_json) {
-  //       console.log(JSON.stringify(response_json))
-  //     })
-  // }
+  function reverseGeocodingRequest(user_coordinates) {
+    const lat = user_coordinates.latitude
+    const long = user_coordinates.longitude
+    const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + process.env.REACT_APP_GEOCODING_API_KEY
+    fetch(api_request)
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(response_json) {
+        const address = response_json['results'][0]['formatted_address']
+        findPlacesRequest(address)
+      })
+  }
 
   // Send request to Google Maps JavaScript API using Places Library
   function findPlacesRequest(input) {
