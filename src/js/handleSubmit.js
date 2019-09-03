@@ -60,6 +60,7 @@ export default function handleSubmit() {
         return response.json()
       })
       .then(function(response_json) {
+        console.log(response_json)
         const address_arr = response_json['results'][0]['formatted_address'].split(', ')
         const address = address_arr[1] + ' ' + address_arr[2]
         findPlacesRequest(address)
