@@ -40,7 +40,7 @@ export default function handleSubmit() {
     }
   })
 
-  // Send request to Google Geocoding API
+  // Send request to Google Maps Javascript API with Geocoding
   function reverseGeocodingRequest(user_coordinates) {
 
     // Google Analytics
