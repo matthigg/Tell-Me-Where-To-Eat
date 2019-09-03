@@ -26,6 +26,16 @@ class InputLocationBar extends Component {
 
   render() {
     return (
+      <Helmet>
+
+        {/* Meta Description */}
+        <meta description="Can't decide where to eat? Click here! Offering carefully curated (ie. random) restaurant suggestions | Tell Me Where To Eat" />
+
+        {/* <!-- Title --> */}
+        <title>Tell Me Where To Eat</title>
+
+      </Helmet>
+
       <section className="landing-page">
         <div className="search-results-modal">
           <div className="search-results-modal-content">
