@@ -6,6 +6,8 @@ export default function handleSubmit() {
       'value': 1
     })
 
+    console.log(window)
+
   // Click the "GO"/submit button if user hits "Enter" 
   document.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
@@ -70,8 +72,7 @@ export default function handleSubmit() {
     const random_1 = Math.floor(Math.random() * restaurant_categories.length)
     const random_2 = Math.floor(Math.random() * restaurant_styles.length)
     const restaurant_type = restaurant_styles[random_2] + ' ' + restaurant_categories[random_1] + ' '
-    const search_query = restaurant_type + 'restaurants near ' + input
-    console.log(search_query)
+    const search_query = restaurant_type + 'restaurants, food, and drink near ' + input
     const google = window.google
     const zero = new google.maps.LatLng(0, 0)
     const map = new google.maps.Map(
@@ -80,7 +81,6 @@ export default function handleSubmit() {
       query: search_query,
       fields: ['formatted_address', 'geometry', 'name', 'permanently_closed']
     }
-    console.log(request)
     const service = new google.maps.places.PlacesService(map);
     service.findPlaceFromQuery(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK && results[0].permanently_closed === undefined) {

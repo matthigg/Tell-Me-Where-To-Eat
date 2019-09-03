@@ -8,7 +8,7 @@
   .landing-page .headline {
     color: #eee;
     font-size: calc(1.5rem + 1vw);
-    padding: calc(2rem + 0.5vw); }
+    padding: calc(0.5rem + 0.5vw); }
     .landing-page .headline .headline-emphasis {
       font-weight: 900;
       font-size: calc(1.5rem + 1vw);
