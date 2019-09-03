@@ -221,10 +221,10 @@ $landing-page-transition: 0.2s;
       }
       & .map {
         margin: calc(1rem + 1vw) auto;
-        height: 40vh;
+        height: 35vh;
         width: 50vw;
         @media (max-width: 767.98px) {
-          height: 50vh;
+          height: 40vh;
           width: 70vw;
         }
       }
@@ -249,10 +249,12 @@ $landing-page-transition: 0.2s;
       }
       & .search-results-address {
         font-size: calc(1rem + 0.25vw);
+        width: 75vw;
       }
       & .search-results-name {
         font-weight: 700;
         font-size: calc(1.25rem + 0.25vw);
+        width: 75vw;
       }
     }
     &.modal-fade-in {

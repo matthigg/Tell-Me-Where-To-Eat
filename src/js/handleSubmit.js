@@ -59,9 +59,9 @@ export default function handleSubmit() {
     const restaurant_type = restaurant_styles[random_1] + ' ' + restaurant_categories[random_2] + ' '
     input = restaurant_type + 'restaurants in ' + input
     const google = window.google
-    let zero = new google.maps.LatLng(0, 0)
-    let map = new google.maps.Map(
-      document.querySelector('.map'), {zoom: 14, center: zero})
+    const zero = new google.maps.LatLng(0, 0)
+    const map = new google.maps.Map(
+      document.querySelector('.map'), {zoom: 18, center: zero})
     const request = {
       query: input,
       fields: ['formatted_address', 'geometry', 'name', 'permanently_closed']
@@ -74,11 +74,17 @@ export default function handleSubmit() {
         document.querySelector('.search-results-address').innerHTML = address
         document.querySelector('.search-results-name').innerHTML = name
         map.setCenter(results[0].geometry.location)
+        const marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
         openModal()
       } else {
-        const url = 'https://www.google.com/search?q=' + input
-        const blank = '_blank'
-        window.open(`${url}`, `${blank}`, "noopener,noreferrer")
+        // const url = 'https://www.google.com/search?q=' + input
+        // const blank = '_blank'
+        // window.open(`${url}`, `${blank}`, "noopener,noreferrer")
+
+        document.querySelector('.search-results-address').innerHTML = 'address'
+        document.querySelector('.search-results-name').innerHTML = 'name'
+        // map.setCenter(results[0].geometry.location)
+        openModal()
       }
     });
   }

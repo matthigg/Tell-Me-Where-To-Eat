@@ -30,8 +30,8 @@ class InputLocationBar extends Component {
         <div className="search-results-modal">
           <div className="search-results-modal-content">
             <div className="close-modal">x</div>
-            <div className="search-results-name"></div>
-            <div className="search-results-address"></div>
+            <p className="search-results-name"></p>
+            <p className="search-results-address"></p>
             <div className="map"></div>
             <button className="open-google-maps-button">Open Google Maps</button>
           </div>
