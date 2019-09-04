@@ -65,11 +65,10 @@ export default function handleSubmit() {
         // Google Analytics
         window.gtag('event', 'select_reverse_geocoding', {
           'event_category': 'reverse_geocoding',
-          'event_label': 'Reverse geocoding API limit reached',
+          'event_label': 'Use reverse geocoding, API quota limit reached',
           'value': 1
         })
 
-        console.log(results, status)
         openGoogleMapsURL({ 'lat': lat, 'lng': lng })
       }
     })
@@ -123,8 +122,6 @@ export default function handleSubmit() {
           'event_label': 'Successful search',
           'value': 1
         })
-
-        console.log('if', results, status)
         
         const address = results[0].formatted_address
         const name = results[0].name
@@ -142,7 +139,6 @@ export default function handleSubmit() {
           'value': 1
         })
 
-        console.log('else', results, status)
         openGoogleMapsURL({ 'user_input': user_input })
       }
     });
