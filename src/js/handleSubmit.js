@@ -97,7 +97,8 @@ export default function handleSubmit() {
       url = 'https://www.google.com/maps/dir/?api=1&origin=' + lat + ',' + lng + '&destination=' + createSearchString('me').split(' ').join('+')
     } else if (user_location['user_input']) {
       const user_input = user_location['user_input']
-      url = 'https://www.google.com/maps/dir/?api=1&origin=' + user_input.split(' ').join('+') + '&destination=' + createSearchString('me').split(' ').join('+')
+      url = 'https://www.google.com/maps/dir/?api=1&origin=' + user_input.split(' ').join('+') + '&destination=' + createSearchString(user_location).split(' ').join('+')
+      console.log('=== user_location: ', user_location, url)
     }
     const blank = '_blank'
     window.open(`${url}`, `${blank}`, "noopener,noreferrer")
