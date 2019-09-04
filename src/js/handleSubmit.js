@@ -42,55 +42,76 @@ export default function handleSubmit() {
 
   // Send request to Google Maps Javascript API with Geocoding
   function reverseGeocodingRequest(user_coordinates) {
-
-    // Google Analytics
-    window.gtag('event', 'select_reverse_geocoding', {
-      'event_category': 'reverse_geocoding',
-      'event_label': 'Use reverse geocoding',
-      'value': 1
-    })
-
+    const google = window.google
     const lat = user_coordinates.latitude
     const lng = user_coordinates.longitude
-    const google = window.google
-
     const geocoder = new google.maps.Geocoder()
     const latlng = new google.maps.LatLng(lat, lng)
     geocoder.geocode( {'location': latlng }, function(results, status) {
       if (status === 'OK') {
-        console.log(results, status)
+
+        // Google Analytics
+        window.gtag('event', 'select_reverse_geocoding', {
+          'event_category': 'reverse_geocoding',
+          'event_label': 'Use reverse geocoding',
+          'value': 1
+        })
+
+        const address_arr = results[0]['formatted_address'].split(', ')
+        const address = address_arr[1] + ' ' + address_arr[2]
+        findPlacesRequest(address)
       } else {
+
+        // Google Analytics
+        window.gtag('event', 'select_reverse_geocoding', {
+          'event_category': 'reverse_geocoding',
+          'event_label': 'Reverse geocoding API limit reached',
+          'value': 1
+        })
+
         console.log(results, status)
+        openGoogleMapsURL({ 'lat': lat, 'lng': lng })
       }
     })
-
-    // const api_request = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&key=' + process.env.REACT_APP_GEOCODING_API_KEY
-    // fetch(api_request)
-    //   .then(function(response) {
-    //     return response.json()
-    //   })
-    //   .then(function(response_json) {
-    //     console.log(response_json)
-    //     const address_arr = response_json['results'][0]['formatted_address'].split(', ')
-    //     const address = address_arr[1] + ' ' + address_arr[2]
-    //     findPlacesRequest(address)
-    //   })
   }
 
-  // Send request to Google Maps JavaScript API using Places Library
-  function findPlacesRequest(input) {
-    const restaurant_categories = ['fine dining', 'casual dining', 'contemporary casual', 'family style', 'fast casual', 'fast food', 'cafe', 'buffet', 'bistro', 'pub', 'grill', 'bar', 'diner', 'dive']
-    const restaurant_styles = ['american', 'indian', 'seafood', 'vegetarian', 'italian', 'mexican', 'asian', 'hispanic', 'chinese', 'japanese', 'korean', 'vietnamese', 'ethiopian', 'steakhouse', 'french', 'irish', 'greek', 'german', 'brazilian', 'kosher', 'gluten-free']
+  // Create a random search string using text submitted by the user from the 
+  // <input> field
+  const restaurant_categories = ['fine dining', 'casual dining', 'contemporary casual', 'family style', 'fast casual', 'fast food', 'cafe', 'buffet', 'bistro', 'pub', 'grill', 'bar', 'diner', 'dive']
+  const restaurant_styles = ['american', 'indian', 'seafood', 'vegetarian', 'italian', 'mexican', 'asian', 'hispanic', 'chinese', 'japanese', 'korean', 'vietnamese', 'ethiopian', 'steakhouse', 'french', 'irish', 'greek', 'german', 'brazilian', 'kosher', 'gluten-free', 'southern', 'new york', 'chicago']
+  function createSearchString(user_input) {
     const random_1 = Math.floor(Math.random() * restaurant_categories.length)
     const random_2 = Math.floor(Math.random() * restaurant_styles.length)
     const restaurant_type = restaurant_styles[random_2] + ' ' + restaurant_categories[random_1] + ' '
-    const search_query = restaurant_type + 'restaurants, food, and drink near ' + input
+    const search_query = restaurant_type + 'restaurants food and drink near ' + user_input
+    return search_query
+  }
+
+  // Create and open a Google Maps URL using the 'directions' API, with a starting
+  // point obtained from the user using either the user's lat/lng coordinates
+  // or text submitted by the user from the <input> field
+  function openGoogleMapsURL(user_location) {
+    let url
+    if (user_location['lat'] & user_location['lng']) {
+      const lat = user_location['lat']
+      const lng = user_location['lng']
+      url = 'https://www.google.com/maps/dir/?api=1&origin=' + lat + ',' + lng + '&destination=' + createSearchString('me').split(' ').join('+')
+    } else if (user_location['user_input']) {
+      const user_input = user_location['user_input']
+      url = 'https://www.google.com/maps/dir/?api=1&origin=' + user_input.split(' ').join('+') + '&destination=' + createSearchString('me').split(' ').join('+')
+    }
+    const blank = '_blank'
+    window.open(`${url}`, `${blank}`, "noopener,noreferrer")
+  }
+
+  // Send request to Google Maps JavaScript API using Places Library
+  function findPlacesRequest(user_input) {
     const google = window.google
+    const search_string = createSearchString(user_input)
     const zero = new google.maps.LatLng(0, 0)
-    const map = new google.maps.Map(
-      document.querySelector('.map'), {zoom: 18, center: zero})
+    const map = new google.maps.Map(document.querySelector('.map'), {zoom: 18, center: zero})
     const request = {
-      query: search_query,
+      query: search_string,
       fields: ['formatted_address', 'geometry', 'name', 'permanently_closed']
     }
     const service = new google.maps.places.PlacesService(map);
@@ -102,6 +123,8 @@ export default function handleSubmit() {
           'event_label': 'Successful search',
           'value': 1
         })
+
+        console.log('if', results, status)
         
         const address = results[0].formatted_address
         const name = results[0].name
@@ -118,6 +141,8 @@ export default function handleSubmit() {
           'event_label': 'Successful search, API quota limit reached',
           'value': 1
         })
+
+        console.log('else', results, status)
 
         const url = 'https://www.google.com/search?q=' + input
         const blank = '_blank'
