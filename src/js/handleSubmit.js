@@ -143,10 +143,7 @@ export default function handleSubmit() {
         })
 
         console.log('else', results, status)
-
-        const url = 'https://www.google.com/search?q=' + input
-        const blank = '_blank'
-        window.open(`${url}`, `${blank}`, "noopener,noreferrer")
+        openGoogleMapsURL({ 'user_input': user_input })
       }
     });
   }
