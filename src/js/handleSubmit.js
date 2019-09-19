@@ -1,11 +1,5 @@
 export default function handleSubmit() {
 
-    // Google Analytics Test
-    window.gtag('event', 'submit', {
-      'event_label': 'Testing if gtag is firing correctly',
-      'value': 1
-    })
-
   // Click the "GO"/submit button if user hits "Enter" 
   document.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
